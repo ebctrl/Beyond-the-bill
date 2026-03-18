@@ -74,15 +74,15 @@ beyond-the-bill/
 
 | Billing by Condition | Billing Heatmap |
 |:---:|:---:|
-| ![Billing](visualizations/01_billing_by_condition.png) | ![Heatmap](visualizations/02_billing_heatmap.png) |
+| ![Billing](Visualizations/01_billing_by_condition.png) | ![Heatmap](Visualizations/02_billing_heatmap.png) |
 
 | LOS vs Billing | Monthly Trend |
 |:---:|:---:|
-| ![LOS](visualizations/05_los_vs_billing.png) | ![Trend](visualizations/08_monthly_admissions_trend.png) |
+| ![LOS](Visualizations/05_los_vs_billing.png) | ![Trend](Visualizations/08_monthly_admissions_trend.png) |
 
 | Age Group Analysis | Test Results |
 |:---:|:---:|
-| ![Age](visualizations/06_age_group_analysis.png) | ![Tests](visualizations/07_test_results_by_condition.png) |
+| ![Age](Visualizations/06_age_group_analysis.png) | ![Tests](Visualizations/07_test_results_by_condition.png) |
 
 ## Data Cleaning Steps
 
