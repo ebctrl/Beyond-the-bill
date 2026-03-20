@@ -9,7 +9,7 @@ End-to-end analysis of 55,500 hospital admissions across 6 chronic conditions, 5
 
 ### 1. What drives hospital billing? Is it the condition, admission type, insurance, or length of stay?
 
-**Answer: Length of Stay is the primary billing driver — not the diagnosis itself.** Average billing is remarkably consistent across all 6 conditions (~$25,500), and all 3 admission types show nearly identical averages. This means the condition label alone doesn't predict cost. Instead, the wide billing range ($9–$52K) within each condition points to individual case complexity and LOS as the real cost drivers. A 2-day diabetes admission and a 28-day diabetes admission are fundamentally different resource consumers, yet both fall under "Diabetes." The daily cost metric (~$3,387/day) is a more actionable lever for cost management than condition-level averages.
+**Answer: Length of Stay is the primary billing driver — not the diagnosis itself.** Average billing is remarkably consistent across all 6 conditions (around $25,500), and all 3 admission types show nearly identical averages. This means the condition label alone doesn't predict cost. Instead, the wide billing range ($9–$52K) within each condition points to individual case complexity and LOS as the real cost drivers. A 2-day diabetes admission and a 28-day diabetes admission are fundamentally different resource consumers, yet both fall under "Diabetes." The daily cost metric ($3,387/day) is a more actionable lever for cost management than condition-level averages.
 
 ### 2. How long do patients stay? What factors influence length of stay?
 
@@ -17,15 +17,15 @@ End-to-end analysis of 55,500 hospital admissions across 6 chronic conditions, 5
 
 ### 3. Are outcomes equitable? Do demographics or insurance affect test results?
 
-**Answer: Yes — outcomes are remarkably equitable across all demographics.** Abnormal test result rates are stable at ~33% across every age group (13-25 through 76+), both genders, and all 5 insurance providers. There is no evidence of demographic or payer-driven disparities in clinical outcomes. This is a positive finding that the hospital can use in compliance reporting and insurance negotiations to demonstrate standardized care delivery.
+**Answer: Yes — outcomes are remarkably equitable across all demographics.** Abnormal test result rates are stable at around 33% across every age group (13-25 through 76+), both genders, and all 5 insurance providers. There is no evidence of demographic or payer-driven disparities in clinical outcomes. This is a positive finding that the hospital can use in compliance reporting and insurance negotiations to demonstrate standardized care delivery.
 
 ### 4. How do insurers compare? Any billing or LOS differences across payers?
 
-**Answer: All 5 insurers show nearly identical billing and LOS patterns.** Average billing ranges only from ~$25,400 to ~$25,700 across Cigna, Medicare, UnitedHealthcare, Blue Cross, and Aetna. Average LOS varies by less than 0.3 days. No insurer is associated with systematically shorter stays or lower costs. This means the hospital delivers consistent care regardless of payer — a strong negotiating position when renewing contracts.
+**Answer: All 5 insurers show nearly identical billing and LOS patterns.** Average billing ranges only from $25,400 to $25,700 across Cigna, Medicare, UnitedHealthcare, Blue Cross, and Aetna. Average LOS varies by less than 0.3 days. No insurer is associated with systematically shorter stays or lower costs. This means the hospital delivers consistent care regardless of payer — a strong negotiating position when renewing contracts.
 
 ### 5. What are the operational patterns? Admission trends, seasonality, day-of-week effects?
 
-**Answer: Admissions are steady at ~900/month with slight weekday concentration and no meaningful seasonality.** Monthly volume is remarkably stable across 5 years (2019–2024), suggesting consistent demand rather than seasonal surges. Weekdays see slightly higher admission counts than weekends, which is typical for elective procedures. Emergency admissions represent ~33% of volume across all conditions. Peak planning should focus on weekday capacity rather than seasonal staffing adjustments.
+**Answer: Admissions are steady at around 900/month with slight weekday concentration and no meaningful seasonality.** Monthly volume is remarkably stable across 5 years (2019–2024), suggesting consistent demand rather than seasonal surges. Weekdays see slightly higher admission counts than weekends, which is typical for elective procedures. Emergency admissions represent around 33% of volume across all conditions. Peak planning should focus on weekday capacity rather than seasonal staffing adjustments.
 
 ---
 
