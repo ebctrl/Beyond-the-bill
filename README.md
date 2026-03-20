@@ -5,13 +5,29 @@ End-to-end analysis of 55,500 hospital admissions across 6 chronic conditions, 5
 
 ---
 
-## Business Questions
+## Business Questions & Answers
 
-1. **What drives hospital billing?** Is it the condition, admission type, insurance, or length of stay?
-2. **How long do patients stay?** What factors influence length of stay?
-3. **Are outcomes equitable?** Do demographics or insurance affect test results?
-4. **How do insurers compare?** Any billing or LOS differences across payers?
-5. **What are the operational patterns?** Admission trends, seasonality, day-of-week effects?
+### 1. What drives hospital billing? Is it the condition, admission type, insurance, or length of stay?
+
+**Answer: Length of Stay is the primary billing driver — not the diagnosis itself.** Average billing is remarkably consistent across all 6 conditions (~$25,500), and all 3 admission types show nearly identical averages. This means the condition label alone doesn't predict cost. Instead, the wide billing range ($9–$52K) within each condition points to individual case complexity and LOS as the real cost drivers. A 2-day diabetes admission and a 28-day diabetes admission are fundamentally different resource consumers, yet both fall under "Diabetes." The daily cost metric (~$3,387/day) is a more actionable lever for cost management than condition-level averages.
+
+### 2. How long do patients stay? What factors influence length of stay?
+
+**Answer: Average LOS is 15.5 days, uniformly distributed (1–30 days), with no single condition dominating extended stays.** LOS varies only marginally across conditions (15.4–15.7 days) and admission types (15.4–15.6 days). This uniform distribution suggests the hospital handles a broad mix of simple and complex cases across all diagnoses. The practical implication: resource planning should focus on total admission volume and outlier management (flagging stays >20 days), rather than staffing by condition type.
+
+### 3. Are outcomes equitable? Do demographics or insurance affect test results?
+
+**Answer: Yes — outcomes are remarkably equitable across all demographics.** Abnormal test result rates are stable at ~33% across every age group (13-25 through 76+), both genders, and all 5 insurance providers. There is no evidence of demographic or payer-driven disparities in clinical outcomes. This is a positive finding that the hospital can use in compliance reporting and insurance negotiations to demonstrate standardized care delivery.
+
+### 4. How do insurers compare? Any billing or LOS differences across payers?
+
+**Answer: All 5 insurers show nearly identical billing and LOS patterns.** Average billing ranges only from ~$25,400 to ~$25,700 across Cigna, Medicare, UnitedHealthcare, Blue Cross, and Aetna. Average LOS varies by less than 0.3 days. No insurer is associated with systematically shorter stays or lower costs. This means the hospital delivers consistent care regardless of payer — a strong negotiating position when renewing contracts.
+
+### 5. What are the operational patterns? Admission trends, seasonality, day-of-week effects?
+
+**Answer: Admissions are steady at ~900/month with slight weekday concentration and no meaningful seasonality.** Monthly volume is remarkably stable across 5 years (2019–2024), suggesting consistent demand rather than seasonal surges. Weekdays see slightly higher admission counts than weekends, which is typical for elective procedures. Emergency admissions represent ~33% of volume across all conditions. Peak planning should focus on weekday capacity rather than seasonal staffing adjustments.
+
+---
 
 ## Dataset
 
@@ -23,9 +39,9 @@ End-to-end analysis of 55,500 hospital admissions across 6 chronic conditions, 5
 
 ```
 beyond-the-bill/
-├── data/
+├── Data/
 │   └── healthcare_dataset.csv           # Raw dataset (55,500 rows)
-├── output/
+├── Output/
 │   ├── healthcare_cleaned.csv           # Cleaned with derived features
 │   ├── condition_summary.csv            # Full condition-level metrics
 │   ├── insurance_provider_stats.csv     # Insurer comparison
@@ -33,7 +49,7 @@ beyond-the-bill/
 │   ├── medication_stats.csv             # Medication effectiveness
 │   ├── descriptive_statistics.csv       # Core descriptive stats
 │   └── key_findings.txt                 # Written insights
-├── visualizations/
+├── Visualizations/
 │   ├── 01_billing_by_condition.png      # Box plots
 │   ├── 02_billing_heatmap.png           # Condition × Admission Type
 │   ├── 03_insurance_comparison.png      # Billing & LOS by insurer
@@ -43,15 +59,22 @@ beyond-the-bill/
 │   ├── 07_test_results_by_condition.png # Stacked outcome bars
 │   ├── 08_monthly_admissions_trend.png  # Dual-axis time series
 │   └── 09_day_of_week.png              # Weekly admission pattern
-├── sql_queries/
+├── SQL_Queries/
 │   └── analysis_queries.sql             # 10 queries: CTEs, window, CASE
 ├── analysis.py                          # Full pipeline (run this)
 └── README.md
 ```
 
-## Key Findings
+## Data Cleaning Steps
 
-### Billing KPIs
+1. Parsed admission and discharge dates, calculated **Length of Stay** (Discharge − Admission)
+2. Fixed **108 negative billing amounts** (converted to absolute values)
+3. Fixed **invalid LOS** (≤0 days set to 1)
+4. Standardized **name casing** (original had random capitalization like "DaNnY sMitH")
+5. Created derived features: Age Group, Billing Tier, Daily Cost, time dimensions (year, month, quarter, day of week)
+
+## Key Metrics at a Glance
+
 | Metric | Value |
 |--------|------:|
 | Total Billing | $1.42B |
@@ -60,7 +83,8 @@ beyond-the-bill/
 | Avg Daily Cost | $3,387 |
 | Total Admissions | 55,500 |
 
-### Condition Summary
+## Condition Summary
+
 | Condition | Patients | Avg Billing | Avg LOS | Emergency % |
 |-----------|:--------:|:-----------:|:-------:|:-----------:|
 | Obesity | 9,231 | $25,808 | 15.5 | 33.9% |
@@ -70,27 +94,23 @@ beyond-the-bill/
 | Hypertension | 9,245 | $25,499 | 15.5 | 32.5% |
 | Cancer | 9,227 | $25,164 | 15.5 | 32.7% |
 
-### Visualizations
+## Visualizations
 
 | Billing by Condition | Billing Heatmap |
 |:---:|:---:|
 | ![Billing](Visualizations/01_billing_by_condition.png) | ![Heatmap](Visualizations/02_billing_heatmap.png) |
 
-| LOS vs Billing | Monthly Trend |
+| Insurance Comparison | LOS Distribution |
 |:---:|:---:|
-| ![LOS](Visualizations/05_los_vs_billing.png) | ![Trend](Visualizations/08_monthly_admissions_trend.png) |
+| ![Insurance](Visualizations/03_insurance_comparison.png) | ![LOS](Visualizations/04_los_distribution.png) |
 
-| Age Group Analysis | Test Results |
+| LOS vs Billing | Age Group Analysis |
 |:---:|:---:|
-| ![Age](Visualizations/06_age_group_analysis.png) | ![Tests](Visualizations/07_test_results_by_condition.png) |
+| ![Scatter](Visualizations/05_los_vs_billing.png) | ![Age](Visualizations/06_age_group_analysis.png) |
 
-## Data Cleaning Steps
-
-1. Parsed dates and calculated **Length of Stay** (Discharge - Admission)
-2. Fixed **108 negative billing amounts** (converted to absolute values)
-3. Fixed **invalid LOS** (≤0 days set to 1)
-4. Standardized **name casing** (original had random capitalization)
-5. Created derived features: Age Group, Billing Tier, Daily Cost, time dimensions
+| Test Results by Condition | Monthly Admissions Trend |
+|:---:|:---:|
+| ![Tests](Visualizations/07_test_results_by_condition.png) | ![Trend](Visualizations/08_monthly_admissions_trend.png) |
 
 ## Skills Demonstrated
 
