@@ -125,6 +125,7 @@ Download the .pbix file from the `dashboard/` folder to explore interactively.
 
 - **Python**: Pandas (55K-row data, datetime handling, pivot tables, groupby), Seaborn, Matplotlib
 - **SQL**: Multi-condition aggregations, CTEs, window functions (LAG, RANK), CASE expressions
+- **Power BI**: Interactive dashboard with DAX measures, KPI cards, slicers, custom sort columns, dual-axis charts
 - **Analytics**: KPI dashboards, billing analysis, LOS modeling, demographic analysis, outcome comparisons
 - **Data Cleaning**: Negative value handling, date parsing, feature engineering, outlier detection
 
