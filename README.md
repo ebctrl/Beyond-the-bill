@@ -112,6 +112,15 @@ beyond-the-bill/
 |:---:|:---:|
 | ![Tests](Visualizations/07_test_results_by_condition.png) | ![Trend](Visualizations/08_monthly_admissions_trend.png) |
 
+## Interactive Dashboard (Power BI)
+
+Built two interactive Power BI dashboards for KPI Overview and Demographic & Operations
+Download the .pbix file from the `dashboard/` folder to explore interactively.
+
+![Dashboard Preview](dashboard/dashboard1_preview.png)
+
+![Dashboard Preview](dashboard/dashboard2_preview.png)
+
 ## Skills Demonstrated
 
 - **Python**: Pandas (55K-row data, datetime handling, pivot tables, groupby), Seaborn, Matplotlib
