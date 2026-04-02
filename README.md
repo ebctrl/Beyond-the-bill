@@ -138,4 +138,4 @@ python analysis.py
 
 ## Author
 
-**Ernesto** — Data Analyst | Berlin, Germany
+**Ernesto Acosta Berg** — Data Analyst | Berlin, Germany
